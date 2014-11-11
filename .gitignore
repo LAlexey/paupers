@@ -1,0 +1,9 @@
+.idea
+/.bundle
+
+
+config/database.yml
+config/secrets.yml
+
+/log/*.log
+/tmp
