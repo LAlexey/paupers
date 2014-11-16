@@ -32,6 +32,8 @@ gem 'haml-rails'
 
 gem 'rails_12factor', group: :production
 
+gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'
