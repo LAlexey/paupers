@@ -1,7 +1,28 @@
 Rails.application.routes.draw do
+  devise_for :users, path: 'auth', path_names: {
+    sign_in: 'login', sign_out: 'logout',
+    registration: 'register',
+    password: 'secret',
+    edit: 'edit/profile'
+  },
+    controllers: {
+      sessions: 'auth/sessions',
+      registrations: 'auth/registrations',
+      confirmations: 'auth/confirmations'
+  }
+
+  resources :vendors
+
+  resources :service_categories
+
   root to: 'application#home'
 
-  resources :services
+  resources :services, only: [:index, :show]
+
+  namespace :admin do
+    resources :services
+    resources :service_categories
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

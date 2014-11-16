@@ -15,7 +15,7 @@
   %tbody
     - @services.each do |service|
       %tr
-        %td= link_to service.id, service_path(service)
+        %td= link_to service.id, admin_service_path(service)
         %td= service.vendor_id
         %td= service.category_id
         %td= service.title
@@ -23,7 +23,7 @@
         %td= service.type
         %td=l service.created_at
         %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_service_path(service), :class => 'btn btn-default btn-xs'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), service_path(service), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_service_path(service), :class => 'btn btn-default btn-xs'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_service_path(service), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
 
-= link_to t('.new', :default => t("helpers.links.new")), new_service_path, :class => 'btn btn-primary'
+= link_to t('.new', :default => t("helpers.links.new")), new_admin_service_path, :class => 'btn btn-primary'

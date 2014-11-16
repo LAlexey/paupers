@@ -1,0 +1,6 @@
+= bootstrap_form_for([:admin, @service_category], layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10') do |f|
+  = f.text_field :title
+  = f.text_field :permalink
+  = f.submit 'Сохранить'
+
+  = link_to t('.cancel', :default => t('helpers.links.cancel')), admin_service_categories_path, :class => 'btn btn-default'

@@ -32,13 +32,16 @@ gem 'haml-rails'
 
 gem 'rails_12factor', group: :production
 
+gem 'devise'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'
+  gem 'letter_opener'
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt', '~> 3.1.7' # already installed with devise
 
 # Use unicorn as the app server
 # gem 'unicorn'

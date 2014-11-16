@@ -25,16 +25,10 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand(href="#") Services
+        %a.navbar-brand(href=root_url) Services
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
-            - if user_signed_in?
-              %li
-                %span= current_user.email
-              %li= link_to 'Выход', destroy_session_path(current_user), method: :delete
-            - else
-              %li= link_to 'Вход', new_session_path(:user)
-
+            %li= link_to "Услуги", admin_services_path
 
     .container
       .row

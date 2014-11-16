@@ -1,4 +1,4 @@
-class ServicesController < ApplicationController
+class Admin::ServicesController < Admin::BaseController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   # GET /services
@@ -28,8 +28,8 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
-        format.json { render :show, status: :created, location: @service }
+        format.html { redirect_to [:admin, @service], notice: 'Service was successfully created.' }
+        format.json { render :show, status: :created, location: [:admin, @service] }
       else
         format.html { render :new }
         format.json { render json: @service.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
-        format.json { render :show, status: :ok, location: @service }
+        format.html { redirect_to [:admin, @service], notice: 'Service was successfully updated.' }
+        format.json { render :show, status: :ok, location: [:admin, @service] }
       else
         format.html { render :edit }
         format.json { render json: @service.errors, status: :unprocessable_entity }
@@ -56,19 +56,19 @@ class ServicesController < ApplicationController
   def destroy
     @service.destroy
     respond_to do |format|
-      format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
+      format.html { redirect_to admin_services_url, notice: 'Service was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_service
-      @service = Service.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_service
+    @service = Service.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def service_params
-      params[:service].permit(:title, :description)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def service_params
+    params[:service].permit(:title, :description)
+  end
 end
