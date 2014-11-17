@@ -1,5 +1,5 @@
 class Admin::ServicesController < Admin::BaseController
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_service, only: [:show, :edit, :update, :destroy, :upload_files]
 
   # GET /services
   # GET /services.json
@@ -61,6 +61,22 @@ class Admin::ServicesController < Admin::BaseController
     end
   end
 
+  def upload_files
+    uploader = ImageUploader.new(@service.images)
+
+    if request.post?
+      uploader.add_files(params[:files])
+
+      render json: uploader.to_json
+    else
+      if request.content_mime_type == Mime::JSON
+        render json: uploader.to_json
+      else
+        render(head: :ok)
+      end
+    end
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_service
@@ -69,6 +85,6 @@ class Admin::ServicesController < Admin::BaseController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def service_params
-    params[:service].permit(:title, :description)
+    params[:service].permit(:title, :description, :category_id, :vendor_id)
   end
 end

@@ -1,4 +1,4 @@
-class VendorsController < ApplicationController
+class Admin::VendorsController < Admin::BaseController
   before_action :set_vendor, only: [:show, :edit, :update, :destroy]
 
   # GET /vendors
@@ -28,8 +28,8 @@ class VendorsController < ApplicationController
 
     respond_to do |format|
       if @vendor.save
-        format.html { redirect_to @vendor, notice: 'Vendor was successfully created.' }
-        format.json { render :show, status: :created, location: @vendor }
+        format.html { redirect_to [:admin, @vendor], notice: 'Vendor was successfully created.' }
+        format.json { render :show, status: :created, location: [:admin, @vendor] }
       else
         format.html { render :new }
         format.json { render json: @vendor.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class VendorsController < ApplicationController
   def update
     respond_to do |format|
       if @vendor.update(vendor_params)
-        format.html { redirect_to @vendor, notice: 'Vendor was successfully updated.' }
-        format.json { render :show, status: :ok, location: @vendor }
+        format.html { redirect_to [:admin, @vendor], notice: 'Vendor was successfully updated.' }
+        format.json { render :show, status: :ok, location: [:admin, @vendor] }
       else
         format.html { render :edit }
         format.json { render json: @vendor.errors, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class VendorsController < ApplicationController
   def destroy
     @vendor.destroy
     respond_to do |format|
-      format.html { redirect_to vendors_url, notice: 'Vendor was successfully destroyed.' }
+      format.html { redirect_to admin_vendors_url, notice: 'Vendor was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

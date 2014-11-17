@@ -20,8 +20,15 @@ Rails.application.routes.draw do
   resources :services, only: [:index, :show]
 
   namespace :admin do
-    resources :services
+    resources :services do
+      member do
+        get :upload_files
+        post :upload_files
+      end
+    end
     resources :service_categories
+
+    resources :vendors
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
