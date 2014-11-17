@@ -33,7 +33,10 @@
                 %span= current_user.email
               %li= link_to 'Выход', destroy_session_path(current_user), method: :delete
             - else
-              %li= link_to 'Вход', new_session_path(:user)
+              %li
+                %a{href: "#", data: { toggle: :modal, target: '#popup' }}
+                  Войти
+                  = current_user.try(:email)
 
 
     .container
@@ -49,5 +52,8 @@
               %li= link_to "Link 1", "/path1"
               %li= link_to "Link 2", "/path2"
               %li= link_to "Link 3", "/path3"
+
+      - unless user_signed_in?
+        = render partial: 'shared/popup/auth_popup'
       %footer
         %p &copy; Company 2014

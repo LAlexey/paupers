@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
   def debug
     #sign_out :user
   end
+
+  def popup
+    @popup ||= Popup.new(view_context)
+  end
+  helper_method :popup
 end
