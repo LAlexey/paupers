@@ -1,5 +1,12 @@
 class AbstractUploader < CarrierWave::Uploader::Base
+  # Include RMagick or MiniMagick support:
+  # include CarrierWave::RMagick
+  # include CarrierWave::MiniMagick
   include CarrierWave::MiniMagick
+
+  # Choose what kind of storage to use for this uploader:
+  storage Rails.env.production? ? :fog : :file
+  # storage :fog
 
   process resize_to_limit: [ 1024, 1024 ]
   process convert: 'jpg'
