@@ -42,7 +42,8 @@
                 var url = $('#fileupload').attr('action');
 
                 $scope.options = {
-                    url: url
+                    url: url,
+                    autoUpload: false
                 };
 
                 $scope.loadingFiles = true;
@@ -75,10 +76,11 @@
                         state = 'pending';
                         return $http({
                             url: file.deleteUrl,
+                            headers: { 'X-CSRF-Token': $("input[name='authenticity_token']").val() },
                             method: file.deleteType,
                             data: {
-                              _method: 'delete'
-//                              authenticity_token: $("input[name='authenticity_token']").val()
+                              _method: 'delete',
+                              authenticity_token: $("input[name='authenticity_token']").val()
                             }
                         }).then(
                             function () {

@@ -18,10 +18,10 @@
         // Register as an anonymous AMD module:
         define([
             'jquery',
-            'jquery/loadimage/load-image',
-            'jquery/loadimage/load-image-meta',
-            'jquery/loadimage/load-image-exif',
-            'jquery/loadimage/load-image-ios',
+            'load-image',
+            'load-image-meta',
+            'load-image-exif',
+            'load-image-ios',
             'canvas-to-blob',
             './jquery.fileupload-process'
         ], factory);

@@ -10,12 +10,14 @@ class ImageUploader
     { files: association.map(&:to_jq_upload) }
   end
 
-  def add_files(images)
-    images.each do |file|
+  def add_images(images)
+    uploaded_images = images.map do |file|
       association.build(image: file)
     end
 
     owner.save!
+
+    { files: uploaded_images.map(&:to_jq_upload) }
   end
 
   def remove_files(images)

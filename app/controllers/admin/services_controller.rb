@@ -61,22 +61,6 @@ class Admin::ServicesController < Admin::BaseController
     end
   end
 
-  def upload_files
-    uploader = ImageUploader.new(@service.images)
-
-    if request.post?
-      uploader.add_files(params[:files])
-
-      render json: uploader.to_json
-    else
-      if request.content_mime_type == Mime::JSON
-        render json: uploader.to_json
-      else
-        render(head: :ok)
-      end
-    end
-  end
-
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_service
