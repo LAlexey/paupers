@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'angularjs-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -26,21 +28,34 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'twitter-bootstrap-rails'
+#gem 'font-awesome-rails'
+#gem 'twitter-bootstrap-rails'
+#gem 'railsstrap'
+
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'autoprefixer-rails'
 gem 'bootstrap_form'
 gem 'haml-rails'
 
 gem 'rails_12factor', group: :production
 
 gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
+gem 'devise'
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'
+  gem 'letter_opener'
 end
 
+gem 'mini_magick'
+gem 'carrierwave'
+#gem 'mime-types'
+gem 'fog'
+
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt', '~> 3.1.7' # already installed with devise
 
 # Use unicorn as the app server
 # gem 'unicorn'

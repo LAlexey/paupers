@@ -1,0 +1,29 @@
+#popup.fade.modal{class: popup.need_show_auth_popup? && 'show' }
+  .modal-dialog
+    .modal-content
+      .row
+        .col-md-6
+          .modal-header.main_color
+            %h4.modal-title Вход
+
+          = bootstrap_form_for(User.new, url: session_path(:user), layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10') do |f|
+            .modal-body
+              = f.text_field :email ,placeholder: 'name@example.net', icon: :envelope, hide_label: true
+              -#%span.glyphicon.glyphicon-envelope{ title: 'Введите электронную почту' }
+              = f.password_field :password, icon: :lock, hide_label: true
+            .modal-footer
+              = f.button 'Войти', class: 'btn btn-primary'
+
+        .col-md-6
+          .modal-header.main_color
+            %button.close{"data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+              %span.sr-only Закрыть
+            %h4.modal-title Регистрация
+          = bootstrap_form_for(User.new, url: registration_path(:user), layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10') do |f|
+            .modal-body
+              = f.text_field :email ,placeholder: 'name@example.net', icon: :envelope, hide_label: true
+              = f.password_field :password, icon: :lock, hide_label: true
+              = f.password_field :password_confirmation, icon: :lock, hide_label: true
+            .modal-footer
+              = f.button 'Зарегистрироваться', class: 'btn btn-primary'
