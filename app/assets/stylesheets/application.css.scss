@@ -14,3 +14,23 @@
 
 @import "bootstrap_and_overrides";
 @import "plugins/jquery.fileupload";
+@import "font-awesome";
+@import "animate.min.css";
+@import "main";
+
+@import "slider";
+
+@media (min-width: 1200px) {
+  @import "bigscreen";
+}
+@media (min-width: 992px) and (max-width: 1199px){
+  @import "screen";
+}
+@media (min-width: 768px) and (max-width: 979px)
+{
+  @import "tablet";
+}
+@media (max-width: 767px) {
+  @import "mobile";
+}
+

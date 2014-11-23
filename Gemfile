@@ -39,7 +39,9 @@ gem 'haml-rails'
 
 gem 'rails_12factor', group: :production
 
+gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
 gem 'devise'
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
