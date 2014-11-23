@@ -31,12 +31,10 @@ group :development do
   gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
 end
 
-#gem 'font-awesome-rails'
-#gem 'font-awesome-sass', '~> 4.2.0'
-#gem 'twitter-bootstrap-rails'
 #gem 'railsstrap'
 
 gem 'bootstrap-sass', '~> 3.3.1'
+gem 'font-awesome-sass', '~> 4.2.0'
 gem 'autoprefixer-rails'
 gem 'bootstrap_form'
 gem 'haml-rails'
