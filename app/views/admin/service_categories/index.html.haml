@@ -1,7 +1,7 @@
-- model_class = ServiceCategory
-.page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
-%table.table.table-striped
+-#- model_class = ServiceCategory
+-#.page-header
+-#  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+-#%table.table.table-striped
   %thead
     %tr
       %th= model_class.human_attribute_name(:id)
@@ -18,4 +18,10 @@
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_service_category_path(service_category), :class => 'btn btn-default btn-xs'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_service_category_path(service_category), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
 
-= link_to t('.new', :default => t("helpers.links.new")), new_admin_service_category_path, :class => 'btn btn-primary'
+-#= link_to t('.new', :default => t("helpers.links.new")), new_admin_service_category_path, :class => 'btn btn-primary'
+
+#tree1
+
+:javascript
+  var data = #{ServiceCategory.full_jqtree_json};
+  $('#tree1').tree({data: data});

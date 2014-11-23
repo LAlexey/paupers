@@ -5,3 +5,4 @@
 # require turbolinks
 #= require angular
 #= require plugins/fileupload/main
+#= require plugins/jqtree/jqtree
