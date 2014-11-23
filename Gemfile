@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 #gem 'font-awesome-rails'
+#gem 'font-awesome-sass', '~> 4.2.0'
 #gem 'twitter-bootstrap-rails'
 #gem 'railsstrap'
 
