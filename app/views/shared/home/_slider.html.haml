@@ -1,0 +1,44 @@
+%section#main-slider.main-slider.no-margin
+  .carousel.slide
+    %ol.carousel-indicators
+      %li.active{"data-slide-to" => "0", "data-target" => "#main-slider"}
+      %li{"data-slide-to" => "1", "data-target" => "#main-slider"}
+      %li{"data-slide-to" => "2", "data-target" => "#main-slider"}
+    .carousel-inner
+      .item.active{:style => "background-image: url(images/slider/bg1.jpg)"}
+        .container
+          .row.slide-margin
+            .col-sm-6
+              .carousel-content
+                %h2.animation.animated-item-1
+                  Готов построить свой бизнес и начать зарабатывать тем что нравится?
+                %h3.animation.animated-item-2
+                  Начни с
+                  = link_to("регистрации","#")
+                  на нашем сервисе! Размещай информацию о своих талантах и результах деятельности
+                = link_to("подробнее","#", :class=>"btn-slide animation animated-item-3")
+            .col-sm-6.hidden-xs.animation.animated-item-4
+              .slider-img
+                = image_tag("slider/img1.png",:class=>"img-responsive")
+      .item{:style => "background-image: url(images/slider/bg2.jpg)"}
+        .container
+          .row.slide-margin
+            .col-sm-6
+              .carousel-content
+                %h2.animation.animated-item-1
+                  Ищешь хорошего специалиста, или просто креативного парня?
+                %h3.animation.animated-item-2
+                  Добро пожаловать к нам! более 1000 талантливых людей
+                  = link_to("ждут тебя здесь","#")
+                = link_to("подробнее","#", :class=>"btn-slide animation animated-item-3")
+            .col-sm-6.hidden-xs.animation.animated-item-4
+              .slider-img
+                = image_tag("slider/img2.png",:class=>"img-responsive")
+:javascript
+  jQuery(function($) {'use strict',
+    $(function(){
+        $('#main-slider.carousel').carousel({
+            interval: 8000
+        });
+    });
+  });
