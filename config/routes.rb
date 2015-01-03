@@ -21,7 +21,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :services
-    resources :service_categories
+    resources :service_categories do
+      collection do
+        post :rebuild
+      end
+    end
 
     resources :vendors
 
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
       get :upload_files
       post :upload_files
       delete :destroy_file
+      put :update_position
     end
   end
 

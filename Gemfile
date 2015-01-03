@@ -55,6 +55,8 @@ gem 'carrierwave'
 gem 'fog'
 
 gem 'ancestry'
+gem 'ranked-model'
+gem 'the_sortable_tree', '~> 2.5.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7' # already installed with devise

@@ -10,6 +10,15 @@ class Admin::FileUploadsController < Admin::BaseController
     render json: request.post? ? uploader.add_images(params[:files]) : uploader.to_json
   end
 
+  def update_position
+    model = params[:item][:klass].constantize
+    item = model.find(params[:item][:id])
+    item.position_position = params[:item][:position]
+    item.save!
+
+    render(nothing: true)
+  end
+
   # file_klass
   # file_id
   def destroy_file

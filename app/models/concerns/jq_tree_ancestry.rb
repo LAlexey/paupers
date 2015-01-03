@@ -12,10 +12,13 @@ module JqTreeAncestry
     def to_jqtree_json(nodes)
       nodes.map do |root, subnodes|
         r = {
-          label: root.title
+          id: "id#{root.id}",
+          label: root.title,
+          inode: false,
+          icon: 'file'
         }
 
-        r[:children] = to_jqtree_json(subnodes) if subnodes.any?
+        r[:branch] = to_jqtree_json(subnodes) if subnodes.any?
 
         r
       end

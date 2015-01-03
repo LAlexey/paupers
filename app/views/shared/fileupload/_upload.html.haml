@@ -1,3 +1,8 @@
+%a.init_sortable(href='#')
+  %button.btn.btn-success
+    %i.glyphicon.glyphicon-plus
+    %span init sortable
+
 = form_tag upload_files_admin_file_upload_path(owner_klass: owner_klass, owner_id: owner_id, assoc: assoc), id: 'fileupload', multipart: true, data: { 'file-upload' => 'options', 'ng-app' => 'demo', 'ng-class' => "{'fileupload-processing': processing() || loadingFiles}", 'ng-controller' => 'DemoFileUploadController' } do
   .row.fileupload-buttonbar
     .col-lg-7
@@ -16,8 +21,8 @@
       .progress.progress-striped.active{"data-file-upload-progress" => "progress()"}
         .progress-bar.progress-bar-success{"data-ng-style" => "{width: num + '%'}"}
       .progress-extended  
-  %table.table.table-striped.files.ng-cloak
-    %tr{"data-ng-class" => "{'processing': file.$processing()}", "data-ng-repeat" => "file in queue"}
+  %table#sortable.table.table-striped.files.ng-cloak
+    %tr.placeholder.item{"data-ng-class" => "{'processing': file.$processing()}", "data-ng-repeat" => "file in queue", 'data-item-id' => "{{file.id}}" }
       %td{"data-ng-switch" => "", "data-on" => "!!file.thumbnailUrl"}
         .preview{"data-ng-switch-when" => "true"}
           %a{"data-gallery" => "", "data-ng-href" => "{{file.url}}", download: "{{file.name}}", title: "{{file.name}}"}

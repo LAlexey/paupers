@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122035224) do
+ActiveRecord::Schema.define(version: 20141212054707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "service_categories", force: true do |t|
-    t.string "title"
-    t.string "permalink"
-    t.string "ancestry"
+    t.string  "title"
+    t.string  "permalink"
+    t.string  "ancestry"
+    t.integer "position"
   end
 
   add_index "service_categories", ["ancestry"], name: "index_service_categories_on_ancestry", using: :btree
@@ -30,7 +31,10 @@ ActiveRecord::Schema.define(version: 20141122035224) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
+
+  add_index "service_images", ["position", "service_id"], name: "index_service_images_on_position_and_service_id", unique: true, using: :btree
 
   create_table "services", force: true do |t|
     t.integer  "vendor_id"

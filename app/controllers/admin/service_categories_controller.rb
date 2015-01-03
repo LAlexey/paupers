@@ -61,6 +61,51 @@ class Admin::ServiceCategoriesController < Admin::BaseController
     end
   end
 
+  include TheSortableTreeController::DefineVariablesMethod
+  def rebuild
+    id        = params[:id].to_i
+    parent_id = params[:parent_id].to_i
+    prev_id   = params[:prev_id].to_i
+    next_id   = params[:next_id].to_i
+
+    return render(nothing: true, status: :no_content) if parent_id.zero? && prev_id.zero? && next_id.zero?
+
+    item, collection, klass = self.the_define_common_variables
+    item = self.instance_variable_set(item, klass.find(id))
+
+    if prev_id.zero? && next_id.zero?
+      item.update_attribute(:parent_id, parent_id)
+    else
+      parent_id = nil if parent_id.zero?
+      item.update_attribute(:parent_id, parent_id)
+
+      i = 0
+      siblings = item.siblings.order(:position)
+
+      if !prev_id.zero?
+        ServiceCategory.transaction do
+          siblings.each do |sibling|
+            sibling.update_column(:position, i)
+            item.update_column(:position, i += 1) if sibling.id == prev_id
+
+            i += 1
+          end
+        end
+      elsif !next_id.zero?
+        ServiceCategory.transaction do
+          siblings.each do |sibling|
+            item.update_column(:position, i += 1) if sibling.id == next_id
+            sibling.update_column(:position, i)
+
+            i += 1
+          end
+        end
+      end
+    end
+
+    render(nothing: true, status: :ok)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service_category
