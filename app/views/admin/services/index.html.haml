@@ -6,7 +6,7 @@
     %tr
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:vendor_id)
-      %th= model_class.human_attribute_name(:category_id)
+      -#%th= model_class.human_attribute_name(:category_id)
       %th= model_class.human_attribute_name(:title)
       %th= model_class.human_attribute_name(:description)
       %th= model_class.human_attribute_name(:type)
@@ -16,7 +16,7 @@
       %tr
         %td= link_to service.id, admin_service_path(service)
         %td= service.vendor_id
-        %td= service.category_id
+        -#%td= service.category_id
         %td= service.title
         %td= service.description
         %td= service.type

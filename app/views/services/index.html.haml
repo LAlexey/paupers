@@ -1,0 +1,30 @@
+%section#recent-works
+  .container
+    .center.wow.fadeInDown.animated
+      %h2 Лучшие услуги
+      %p.lead
+        В [Красноярске]
+        %br/
+        Смотрите,задавайте вопросы,ставьте лайки, звоните!
+
+    - @services.each do |service|
+      .row
+        .col-xs-12.col-sm-4.col-md-3
+          .recent-work-wrap
+            .img-wrap
+              = image_tag(service.main_image.image.large_thumb.url, class: 'img-responsive')
+            .overlay
+              .recent-work-inner
+                %span.recent-price
+                  = service.min_price
+                  р
+                %h3.recent-title
+                  %a{:href => "#"}= service.title
+                %p
+                  %a{:href => "#",:class=>"recent-meta"}Ручная работа
+                  |
+                  %a{:href => "#",:class=>"recent-meta"}Художественная ковка
+                %p.recent-desc= service.description
+                %a.preview{:href => service.main_image.image.large_thumb.url, rel: 'prettyPhoto'}
+                  %i.fa.fa-eye
+                  Смотреть

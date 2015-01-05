@@ -82,17 +82,15 @@ class Admin::ServiceCategoriesController < Admin::BaseController
       i = 0
       siblings = item.siblings.order(:position)
 
-      if !prev_id.zero?
-        ServiceCategory.transaction do
+      ServiceCategory.transaction do
+        if !prev_id.zero?
           siblings.each do |sibling|
             sibling.update_column(:position, i)
             item.update_column(:position, i += 1) if sibling.id == prev_id
 
             i += 1
           end
-        end
-      elsif !next_id.zero?
-        ServiceCategory.transaction do
+        elsif !next_id.zero?
           siblings.each do |sibling|
             item.update_column(:position, i += 1) if sibling.id == next_id
             sibling.update_column(:position, i)
