@@ -1,7 +1,8 @@
 %a.init_sortable(href='#')
-  %button.btn.btn-success
-    %i.glyphicon.glyphicon-plus
+  %button.btn.btn-warning
+    %i.glyphicon.glyphicon-th-list
     %span init sortable
+%hr
 
 = form_tag upload_files_admin_file_upload_path(owner_klass: owner_klass, owner_id: owner_id, assoc: assoc), id: 'fileupload', multipart: true, data: { 'file-upload' => 'options', 'ng-app' => 'demo', 'ng-class' => "{'fileupload-processing': processing() || loadingFiles}", 'ng-controller' => 'DemoFileUploadController' } do
   .row.fileupload-buttonbar
@@ -36,6 +37,8 @@
           %span{"data-ng-switch-default" => ""} {{file.name}}
         %strong.error.text-danger{"data-ng-show" => "file.error"} {{file.error}}
       %td
+        = text_field_tag 'title', "", 'ng-model' => "file.title"
+      %td
         %p.size {{file.size | formatFileSize}}
         .progress.progress-striped.active.fade{"data-file-upload-progress" => "file.$progress()", "data-ng-class" => "{pending: 'in'}[file.$state()]"}
           .progress-bar.progress-bar-success{"data-ng-style" => "{width: num + '%'}"}
@@ -49,3 +52,6 @@
         %button.btn.btn-danger.destroy{"data-ng-click" => "file.$destroy()", "data-ng-controller" => "FileDestroyController", "data-ng-hide" => "!file.$destroy", type: "button"}
           %i.glyphicon.glyphicon-trash
           %span Delete
+        %button.btn.btn-danger.destroy{"data-ng-click" => "file.$update()", "data-ng-controller" => "FileUpdateController", "data-ng-hide" => "!file.$update", type: "button"}
+          %i.glyphicon.glyphicon-edit
+          %span Update title

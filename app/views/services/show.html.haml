@@ -1,0 +1,17 @@
+.center.wow.fadeInDown.animated
+  %h2= @service.title
+  %p.lead= raw @service.description
+
+%hr
+
+= render 'photos', photos: @service.images
+
+- if user_signed_in? || true
+
+  %a{href: '#', data: { toggle: :modal, target: '#new_request_popup' }}
+    Мне нравится! Записаться к мастеру.
+
+  = render 'shared/popup/request_popup'
+
+- if policy(@service).update?
+  = link_to 'редактировать', edit_admin_service_path(@service)

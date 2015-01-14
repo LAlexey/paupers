@@ -2,7 +2,6 @@ class Service < ActiveRecord::Base
   belongs_to :vendor
 
   has_and_belongs_to_many :categories, class_name: '::ServiceCategory'
-  #accepts_nested_attributes_for :categories, allow_destroy: true
 
   has_many :images, class_name: 'ServiceImage', inverse_of: :service
 

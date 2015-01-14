@@ -1,9 +1,9 @@
 window.init_sortable = ->
   if $('#sortable').length > 0
-    table_width = $('#sortable').width()
-    cells = $('.table').find('tr')[0].cells.length
-    desired_width = table_width / cells + 'px'
-    $('.table td').css('width', desired_width)
+#    table_width = $('#sortable').width()
+#    cells = $('.table').find('tr')[0].cells.length
+#    desired_width = table_width / cells + 'px'
+#    $('.table td').css('width', desired_width)
 
     $('#sortable').sortable(
       axis: 'y'
@@ -36,3 +36,4 @@ $ ->
     e.preventDefault();
     e.stopPropagation();
     window.init_sortable();
+

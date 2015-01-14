@@ -1,0 +1,4 @@
+%section#service_photos
+  - photos.each do |photo|
+    = link_to photo.image.url, class: 'fancybox', rel: 'service_photos', target: :_blank, title: photo.title do
+      = image_tag(photo.image.url(:large_thumb))

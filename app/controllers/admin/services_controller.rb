@@ -28,7 +28,7 @@ class Admin::ServicesController < Admin::BaseController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to [:admin, @service], notice: 'Service was successfully created.' }
+        format.html { redirect_to @service, notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: [:admin, @service] }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::ServicesController < Admin::BaseController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to [:admin, @service], notice: 'Service was successfully updated.' }
+        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
         format.json { render :show, status: :ok, location: [:admin, @service] }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class Admin::ServicesController < Admin::BaseController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def service_params
-    params[:service].permit(:title, :description, :vendor_id, category_ids: [])
+    params[:service].permit(:title, :description, :price, :vendor_id, category_ids: [])
   end
 end

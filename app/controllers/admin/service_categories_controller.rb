@@ -112,6 +112,6 @@ class Admin::ServiceCategoriesController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_category_params
-      params[:service_category].permit(:title, :permalink)
+      params[:service_category].permit(:title, :permalink, :image)
     end
 end

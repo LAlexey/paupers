@@ -1,7 +1,8 @@
 = bootstrap_form_for([:admin, @service], layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10') do |f|
   = f.text_field :title
   = f.text_field :description
-  -#= f.select(:category_id, ServiceCategory.all.map {|c| [ c.title, c.id ] })
+  = f.number_field :price
+
   = f.collection_check_boxes :category_ids, ServiceCategory.all, :id, :title
 
   = f.select(:vendor_id, Vendor.all.map {|c| [ c.name, c.id ] })

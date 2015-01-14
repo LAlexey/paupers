@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   root to: 'application#home'
 
   resources :services, only: [:index, :show]
+  resources :requests, only: [:create]
 
   namespace :admin do
     resources :services
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
       post :upload_files
       delete :destroy_file
       put :update_position
+      patch :update_file
     end
   end
 

@@ -48,6 +48,10 @@
           autoUpload: false
         };
 
+        $scope.$on('fileuploadsubmit', function (e, data) {
+          //data.formData = {title: data.files[0].title};
+        });
+
         $scope.$on('fileuploaddone', function () {
 //          window.init_sortable();
           window.refresh_sortable();
@@ -113,6 +117,45 @@
         } else if (!file.$cancel && !file._index) {
           file.$cancel = function () {
             $scope.clear(file);
+          };
+        }
+      }
+    ])
+
+    .controller('FileUpdateController', [
+      '$scope', '$http',
+      function ($scope, $http) {
+        var file = $scope.file,
+          state;
+        if (file.url) {
+          file.$state = function () {
+            return state;
+          };
+          file.$update = function () {
+            state = 'pending';
+            return $http({
+              url: file.updateUrl,
+              headers: { 'X-CSRF-Token': $("input[name='authenticity_token']").val() },
+              method: file.updateType,
+              data: {
+                _method: 'patch',
+                authenticity_token: $("input[name='authenticity_token']").val(),
+                title: file.title
+              }
+            }).then(
+              function () {
+                state = 'resolved';
+                window.notify_user('title updated');
+                //$scope.clear(file);
+              },
+              function () {
+                state = 'rejected';
+              }
+            );
+          };
+        } else if (!file.$cancel && !file._index) {
+          file.$cancel = function () {
+            //$scope.clear(file);
           };
         }
       }

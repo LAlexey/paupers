@@ -42,11 +42,15 @@ gem 'haml-rails'
 gem 'rails_12factor', group: :production
 
 gem 'devise'
+gem 'pundit'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-its'
   gem 'factory_girl_rails'
   gem 'letter_opener'
+  gem 'faker'
+  gem 'quiet_assets'
 end
 
 gem 'mini_magick'
@@ -57,6 +61,7 @@ gem 'fog'
 gem 'ancestry'
 gem 'ranked-model'
 gem 'the_sortable_tree', '~> 2.5.0'
+gem 'virtus'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7' # already installed with devise

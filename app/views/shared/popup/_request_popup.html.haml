@@ -1,0 +1,15 @@
+#new_request_popup.fade.modal
+  .modal-dialog
+    .modal-content
+      .row
+        .col-md-12
+          .modal-header.main_color
+            %h4.modal-title Оставить заявку
+
+          = bootstrap_form_for(Request.new, layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10', remote: true) do |f|
+            .modal-body
+              = f.date_field(:date, value: Date.current)
+              = f.time_field :time, value: '12:00'
+              = f.text_area :comment, placeholder: 'Оставьте комментарий', hide_label: true
+            .modal-footer
+              = f.button 'Оставить заявку', class: 'btn btn-primary'

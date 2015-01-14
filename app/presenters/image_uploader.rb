@@ -1,4 +1,13 @@
 class ImageUploader
+  class Image
+    attr_accessor :file, :title
+
+    def initialize(file, title)
+      @file = file
+      @title = title
+    end
+  end
+
   attr_reader :association, :owner
 
   def initialize(association)
@@ -10,17 +19,10 @@ class ImageUploader
     { files: association.map(&:to_jq_upload) }
   end
 
-  def add_images(images)
-    uploaded_images = images.map do |file|
-      association.build(image: file)
-    end
-
+  def add_image(image)
+    uploaded_image = association.build(image: image.file, title: image.title)
     owner.save!
 
-    { files: uploaded_images.map(&:to_jq_upload) }
-  end
-
-  def remove_files(images)
-
+    { files: [uploaded_image.to_jq_upload] }
   end
 end

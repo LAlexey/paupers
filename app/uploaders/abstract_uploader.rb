@@ -9,7 +9,7 @@ class AbstractUploader < CarrierWave::Uploader::Base
   # storage :fog
 
   process resize_to_limit: [ 1024, 1024 ]
-  process convert: 'jpg'
+  # process convert: 'jpg'
 
   def cache_dir
     "#{Rails.root}/tmp/uploads"

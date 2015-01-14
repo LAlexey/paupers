@@ -16,10 +16,12 @@
 @import "plugins/jquery.fileupload";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "animate.min.css";
+@import "animate.css";
 @import "main";
 
 @import "slider";
+
+@import "plugins/jquery.fancybox";
 
 @media (min-width: 1200px) {
   @import "bigscreen";

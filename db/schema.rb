@@ -11,19 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104133828) do
+ActiveRecord::Schema.define(version: 20150114091347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "requests", force: true do |t|
+    t.integer  "owner_id"
+    t.integer  "service_id"
+    t.datetime "time"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "service_categories", force: true do |t|
     t.string  "title"
     t.string  "permalink"
     t.string  "ancestry"
     t.integer "position"
+    t.string  "image"
   end
 
   add_index "service_categories", ["ancestry"], name: "index_service_categories_on_ancestry", using: :btree
+
+  create_table "service_categories_services", force: true do |t|
+    t.integer "service_category_id"
+    t.integer "service_id"
+  end
 
   create_table "service_images", force: true do |t|
     t.integer  "service_id"
@@ -38,25 +53,16 @@ ActiveRecord::Schema.define(version: 20150104133828) do
 
   create_table "services", force: true do |t|
     t.integer  "vendor_id"
-    t.integer  "category_id"
     t.string   "title"
     t.text     "description"
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "price"
+    t.string   "currency"
   end
 
-  add_index "services", ["category_id"], name: "index_services_on_category_id", using: :btree
   add_index "services", ["vendor_id"], name: "index_services_on_vendor_id", using: :btree
-
-  create_table "tickets", force: true do |t|
-    t.integer  "owner_id"
-    t.integer  "vendor_id"
-    t.date     "date"
-    t.string   "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -17,7 +17,10 @@ class ServiceImage < ActiveRecord::Base
       type: image.content_type,
       url: image.url,
       deleteUrl: Rails.application.routes.url_helpers.destroy_file_admin_file_upload_path(file_klass: self.class.model_name, file_id: self.id),
-      deleteType: 'DELETE'
+      deleteType: 'DELETE',
+      updateUrl: Rails.application.routes.url_helpers.update_file_admin_file_upload_path(file_klass: self.class.model_name, file_id: self.id),
+      updateType: 'PATCH',
+      title: self.title
     }
   end
 end

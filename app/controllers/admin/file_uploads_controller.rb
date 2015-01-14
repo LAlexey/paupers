@@ -7,7 +7,12 @@ class Admin::FileUploadsController < Admin::BaseController
     record = owner_klass.find(params[:owner_id])
     uploader = ImageUploader.new(record.method(assoc).call)
 
-    render json: request.post? ? uploader.add_images(params[:files]) : uploader.to_json
+    if request.post?
+      uploaded_image = ImageUploader::Image.new(params[:files].first, params[:title])
+      render json: uploader.add_image(uploaded_image)
+    else
+      render json: uploader.to_json
+    end
   end
 
   def update_position
@@ -22,11 +27,21 @@ class Admin::FileUploadsController < Admin::BaseController
   # file_klass
   # file_id
   def destroy_file
-    file_klass.find(params[:file_id]).destroy
+    file_record.destroy
+    render nothing: true
+  end
+
+  def update_file
+    file_record.update_attribute(:title, params[:title])
+
     render nothing: true
   end
 
   protected
+
+  def file_record
+    @image ||= file_klass.find(params[:file_id])
+  end
 
   def owner_klass
     @owner_klass ||= begin
