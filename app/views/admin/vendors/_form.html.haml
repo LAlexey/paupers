@@ -1,9 +1,33 @@
-= bootstrap_form_for([:admin, @vendor], layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10') do |f|
+= javascript_include_tag '//api-maps.yandex.ru/2.1/?lang=ru_RU'
+
+= bootstrap_nested_form_for([:admin, @vendor], layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10') do |f|
   = f.text_field :name
   = f.text_field :permalink
   = f.text_field :description
+  = f.select :city_id, City.all.map {|c| [ c.name, c.id ] }
 
+  %p
+    Адреса
+  %hr
+
+  = f.fields_for :places do |place_form|
+    -#TODO take out code for bootstrap_form
+    .form-group
+      = place_form.label :address, class: 'control-label col-sm-2'
+      .col-sm-6
+        .input-group
+          = place_form.text_field_without_bootstrap :address, class: 'form-control', placeholder: 'Введите адрес', data: { long: place_form.object.longitude, lat: place_form.object.latitude }
+          %span.input-group-btn
+            %button.btn.btn-default(type='button' role='geo_yandex')Go!
+    = place_form.link_to_remove 'Удалить'
+
+  %p
+    = f.link_to_add 'Добавить место', :places
 
   = f.submit 'Сохранить'
 
   = link_to t('.cancel', :default => t('helpers.links.cancel')), services_path, :class => 'btn btn-default'
+
+%hr
+
+#map(style="width: 600px; height: 400px;")

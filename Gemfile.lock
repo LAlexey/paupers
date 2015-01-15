@@ -117,6 +117,7 @@ GEM
     font-awesome-sass (4.2.2)
       sass (~> 3.2)
     formatador (0.2.5)
+    geocoder (1.2.6)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -149,6 +150,7 @@ GEM
     mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
+    nested_form (0.3.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -270,12 +272,14 @@ DEPENDENCIES
   faker
   fog
   font-awesome-sass (~> 4.2.0)
+  geocoder
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
   letter_opener
   mini_magick
+  nested_form
   pg
   pundit
   quiet_assets

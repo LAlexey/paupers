@@ -36,6 +36,7 @@ end
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'autoprefixer-rails'
+gem 'nested_form'
 gem 'bootstrap_form'
 gem 'haml-rails'
 
@@ -62,6 +63,8 @@ gem 'ancestry'
 gem 'ranked-model'
 gem 'the_sortable_tree', '~> 2.5.0'
 gem 'virtus'
+
+gem 'geocoder'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7' # already installed with devise
