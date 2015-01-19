@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150114131558) do
     t.integer  "vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "city_id"
   end
 
   create_table "requests", force: true do |t|
@@ -110,7 +111,6 @@ ActiveRecord::Schema.define(version: 20150114131558) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "city_id"
   end
 
 end
