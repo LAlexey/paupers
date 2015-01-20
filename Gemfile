@@ -65,6 +65,7 @@ gem 'the_sortable_tree', '~> 2.5.0'
 gem 'virtus'
 
 gem 'geocoder'
+gem 'rails_config'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7' # already installed with devise
