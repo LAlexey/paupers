@@ -6,11 +6,10 @@
   $(function() {
 
     $('#fb_share').click(function(e){
+      e.preventDefault();
+
       FB.ui({
-        method: 'share',
-        href: this.href,
+        method: 'share'
       }, function(response){});
     })
-
-
   });
