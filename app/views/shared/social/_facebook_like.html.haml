@@ -1,1 +1,19 @@
-.fb-like{ data: { share: true, width: 450, 'show-faces' => true } }
+-#.fb-like{ data: { share: true, width: 450, 'show-faces' => true } }
+- url = root_url
+- url += { app_id: Settings.social.facebook.app_id, display: :popup, href: root_url }.to_query
+
+%a#fb_share(href=url)
+  Расшарить
+
+:javascript
+  $(function() {
+
+    $('#fb_share').click(function(e){
+      FB.ui({
+        method: 'share',
+        href: this.href,
+      }, function(response){});
+    })
+
+
+  });
