@@ -9,8 +9,12 @@
       e.preventDefault();
 
       FB.ui({
-        method: 'share',
-        href: this.href,
+        display: 'popup',
+        method: 'share_open_graph',
+        action_type: 'og.likes',
+        action_properties: JSON.stringify({
+          object: this.href,
+        })
       }, function(response){});
     })
   });
