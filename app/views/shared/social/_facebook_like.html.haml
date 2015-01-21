@@ -9,7 +9,8 @@
       e.preventDefault();
 
       FB.ui({
-        method: 'share'
+        method: 'share',
+        href: this.href,
       }, function(response){});
     })
   });
