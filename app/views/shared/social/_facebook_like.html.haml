@@ -10,11 +10,13 @@
 
       FB.ui({
         display: 'popup',
-        method: 'share_open_graph',
-        action_type: 'og.likes',
-        action_properties: JSON.stringify({
-          object: this.href,
-        })
+        //method: 'share_open_graph',
+        method: 'share',
+        href: this.href
+        //action_type: 'og.likes',
+        //action_properties: JSON.stringify({
+        //  object: this.href,
+        //})
       }, function(response){});
     })
   });
