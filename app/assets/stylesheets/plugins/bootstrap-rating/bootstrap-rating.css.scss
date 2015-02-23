@@ -1,0 +1,22 @@
+.symbol {
+  display: inline-block;
+  border-radius: 50%;
+  border: 5px double white;
+  width: 30px;
+  height: 30px;
+}
+
+.symbol-empty {
+  background-color: #ccc;
+}
+
+.symbol-filled {
+  background-color: black;
+}
+
+.rating-symbol-foreground {
+  color: $glyph-color;
+}
+.rate-box {
+  display: block;
+}

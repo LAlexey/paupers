@@ -11,10 +11,8 @@
 #= require sortable_tree/initializer
 #= require sortable_table
 
-#= require plugins/fancybox/jquery.fancybox
-
 #= require utils
 
 #= require requests
-#= require services
-
+#= require plugins/bootstrap-rating/bootstrap-rating
+#= require fotorama.js

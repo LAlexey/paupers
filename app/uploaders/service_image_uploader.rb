@@ -22,11 +22,15 @@ class ServiceImageUploader < AbstractUploader
   # end
 
   version :thumb do
-     process :resize_to_fit => [50, 50]
+     process :resize_to_fit => [117, 71]
   end
 
   version :large_thumb do
-    process :resize_to_fit => [220, 220]
+    process :resize_to_fit => [234, 141]
+  end
+
+  version :full do
+    process :resize_to_fit => [700, 423]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

@@ -1,4 +1,5 @@
-%section#service_photos
+-# 700x423
+.fotorama{ data: { nav: :thumbs, width: 700, 'max-height' => 423, arrows: 'always', click: 'true', swipe: 'true', loop: 'true', captions: 'true' } }
   - photos.each do |photo|
-    = link_to photo.image.url, class: 'fancybox', rel: 'service_photos', target: :_blank, title: photo.title do
-      = image_tag(photo.image.url(:large_thumb))
+    = link_to photo.image.url(:full), data: { caption: photo.title } do
+      = image_tag(photo.image.url(:thumb))

@@ -11,8 +11,6 @@
 #= require sortable_tree/initializer
 #= require sortable_table
 
-#= require plugins/fancybox/jquery.fancybox
-
 #= require utils
 #= require jquery_nested_form
 #= require admin/vendors

@@ -19,7 +19,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'angularjs-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -33,8 +33,10 @@ end
 
 #gem 'railsstrap'
 
-gem 'bootstrap-sass', '~> 3.3.1'
-gem 'font-awesome-sass', '~> 4.2.0'
+gem 'bootstrap-sass', '~> 3.3.3'
+gem 'font-awesome-sass', '~> 4.3.0'
+gem 'google-webfonts-rails'
+
 gem 'autoprefixer-rails'
 gem 'nested_form'
 gem 'bootstrap_form'
@@ -46,6 +48,7 @@ gem 'devise'
 gem 'pundit'
 
 group :development, :test do
+  gem 'thin'
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rspec-its'
   gem 'factory_girl_rails'
@@ -66,6 +69,7 @@ gem 'virtus'
 
 gem 'geocoder'
 gem 'rails_config'
+gem 'acts_as_votable', '~> 0.10.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7' # already installed with devise

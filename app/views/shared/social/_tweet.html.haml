@@ -1,0 +1,15 @@
+- url = 'https://twitter.com/share?'
+- url += { url: root_url, text: 'paupers.ru' }.to_query
+
+%a#tweet(href=url)
+  Твитнуть
+
+:javascript
+  $(function(){
+    $('#tweet').click(function(e){
+      e.preventDefault();
+      e.stopPropagation();
+
+      window.open(this.href, 'Твитнуть', 'width=500,height=500,toolbar=1')
+    })
+  })

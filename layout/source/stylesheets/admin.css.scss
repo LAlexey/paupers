@@ -12,8 +12,6 @@
  *
  */
 
-$glyph-color: #c52d2f;
-
 @import "bootstrap_and_overrides";
 @import "plugins/jquery.fileupload";
 @import "font-awesome-sprockets";
@@ -21,26 +19,21 @@ $glyph-color: #c52d2f;
 @import "animate.css";
 @import "main";
 
-@import "slider";
+/* sortable tree */
+@import "tree";
+@import "sortable_tree";
+@import "nested_options";
 
-@import "plugins/bootstrap-rating/bootstrap-rating";
-@import "pages/services/index";
-@import "pages/services/show";
-@import "fotorama";
-
-//@media (min-width: 1200px) {
-//  @import "bigscreen";
-//}
-//@media (min-width: 992px) and (max-width: 1199px){
-//  @import "screen";
-//}
-//@media (min-width: 768px) and (max-width: 979px)
-//{
-//  @import "tablet";
-//}
-//@media (max-width: 767px) {
-//  @import "mobile";
-//}
-
-@media (min-width: 768px) { .container { max-width: 970px; } }
-
+@media (min-width: 1200px) {
+  @import "bigscreen";
+}
+@media (min-width: 992px) and (max-width: 1199px){
+  @import "screen";
+}
+@media (min-width: 768px) and (max-width: 979px)
+{
+  @import "tablet";
+}
+@media (max-width: 767px) {
+  @import "mobile";
+}

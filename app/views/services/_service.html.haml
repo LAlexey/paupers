@@ -1,0 +1,10 @@
+%figure.service-card
+  = link_to service do
+    = image_tag(service.main_image.image.large_thumb.url, width: 220, height: 134)
+    %figcaption
+      %p.service-title.trunc= service.title
+      %p.service-vendor= service.vendor.name
+      %p.service-desc= service.description
+      %p.service-price= service.price
+
+      -#= hidden_field_tag :rating, nil, class: 'rating'

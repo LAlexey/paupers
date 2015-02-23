@@ -2,8 +2,7 @@
   .container
     .row
       .col-sm-6.col-xs-4
-        %a(href=root_path) О нас
-        -#.top-number
+        .top-number
           %p
             %i.fa.fa-phone-square
             +0123 456 70 90
@@ -25,7 +24,7 @@
             %li
               %a{:href=>"#"}
                 %i.fa.fa-skype
-          -#.search
+          .search
             %form{:role=>"form"}
               %input.search-form{:type=>"text", :autocomplete=>"off", :placeholder=>"Search"}
                 %i.fa.fa-search

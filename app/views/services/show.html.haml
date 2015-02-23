@@ -1,17 +1,19 @@
-.center.wow.fadeInDown.animated
-  %h2= @service.title
-  %p.lead= raw @service.description
+%h2= @service.title
+.big-rate
+  = hidden_field_tag :rating, nil, class: 'rating'
 
-%hr
+%section.col-sm-9.service-info
+  = render 'photos', photos: @service.images
 
-= render 'photos', photos: @service.images
+  %p.main-descr
+    = raw @service.description
 
-- if user_signed_in? || true
+%aside.appointment
+  - if user_signed_in? || true
+    %a{href: '#', data: { toggle: :modal, target: '#new_request_popup' }}
+      Мне нравится! Записаться к мастеру.
 
-  %a{href: '#', data: { toggle: :modal, target: '#new_request_popup' }}
-    Мне нравится! Записаться к мастеру.
+    = render 'shared/popup/request_popup'
 
-  = render 'shared/popup/request_popup'
-
-- if policy(@service).update?
-  = link_to 'редактировать', edit_admin_service_path(@service)
+  - if policy(@service).update?
+    = link_to 'редактировать', edit_admin_service_path(@service)
