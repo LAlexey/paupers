@@ -6,7 +6,7 @@
       %p.service-title.trunc= widget.title
       %p.service-vendor= widget.vendor
       -#%p.service-desc= widget.short_desc
-      %p.service-place= widget.place
+      %p.service-place= raw widget.place
       %p.service-price= widget.price
 
       -#= hidden_field_tag :rating, nil, class: 'rating'

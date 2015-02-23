@@ -7,11 +7,41 @@
   }
 }
 
-.big-rate {
-  font-size: 18px;
-  margin-bottom: 4px;
-}
-
 .main-descr {
   margin-top: 10px;
+}
+
+.appointment {
+  .appoint_link {
+    position: relative;
+    display: block;
+    background-color: $glyph-color;
+    background-image: linear-gradient(to bottom, #F32D2F 0, $glyph-color 100%);
+    padding: 24px 0;
+    border-radius: 32px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 14px;
+    color: #fffefb;
+    margin-bottom: 20px;
+
+    &:hover {
+      background-color: #F32D2F;
+      background-image: linear-gradient(to bottom, #F72D2F 0, #F32D2F 100%);
+    }
+  }
+
+  .big-rate {
+    font-size: 18px;
+    border-top: 1px solid #d8d8d8;
+    padding: 10px 0;
+
+    h3 {
+      margin: 0 0 5px 0;
+    }
+  }
+
+  .admin {
+    border-top: 1px solid #d8d8d8;
+  }
 }

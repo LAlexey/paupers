@@ -1,9 +1,5 @@
 -#= render partial: 'category_block'
 
-%section.best-services
-  %h2 Лучшие услуги нашего сервиса
-  -#%p.lead
-    Здесь представленный самые популярные и восстребованные работы наших мастеров.
-    %br/
-    Смотрите,задавайте вопросы,ставьте лайки, звоните мастерам!
+%section.services
+  %h1 Лучшие услуги нашего сервиса
   = render partial: 'services/service_list', object: @best_services

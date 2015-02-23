@@ -1,6 +1,8 @@
-%h2= @service.title
-.big-rate
-  = hidden_field_tag :rating, nil, class: 'rating'
+- content_for(:head) do
+  = javascript_include_tag '//api-maps.yandex.ru/2.1/?lang=ru_RU'
+
+%h1= @service.title
+%h2= @service.vendor.name
 
 %section.col-sm-9.service-info
   = render 'photos', photos: @service.images
@@ -8,12 +10,26 @@
   %p.main-descr
     = raw @service.description
 
-%aside.appointment
+  - place = @service.place
+  - if place
+    .row(style="position: relative; width:700px; margin-bottom: 20px;")
+      .col-sm-6(style="width: 450px;")
+        #map(style="width: 450px; height: 250px;"){ data: { long: place.longitude, lat: place.latitude, address: place.address } }
+      .col-sm-3(style="margin-left: 10px;")
+        %p= place.city.name
+        %p= place.address
+
+%aside.appointment.col-sm-3
   - if user_signed_in? || true
-    %a{href: '#', data: { toggle: :modal, target: '#new_request_popup' }}
-      Мне нравится! Записаться к мастеру.
+    %a{href: '#', data: { toggle: :modal, target: '#new_request_popup' }, class: 'appoint_link'}
+      Отправить заявку!
 
-    = render 'shared/popup/request_popup'
+  .big-rate
+    %h3 Рейтинг
+    = hidden_field_tag :rating, nil, class: 'rating'
 
-  - if policy(@service).update?
-    = link_to 'редактировать', edit_admin_service_path(@service)
+  .admin
+    - if policy(@service).update?
+      = link_to 'редактировать', edit_admin_service_path(@service)
+
+= render 'shared/popup/request_popup'

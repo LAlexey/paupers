@@ -8,7 +8,9 @@ class ServiceCardWidgetPresenter < Keynote::Presenter
     to: :service
 
   def place
-    service.place.try(:address)
+    address = service.place.try(:address)
+    address = address.gsub(/\s/, '&nbsp;') if address
+    address
   end
 
   def vendor
