@@ -44,6 +44,7 @@ gem 'bootstrap_form'
 gem 'haml-rails'
 
 gem 'rails_12factor', group: :production
+gem 'non-stupid-digest-assets', '~> 1.0.4'
 
 gem 'devise'
 gem 'pundit'

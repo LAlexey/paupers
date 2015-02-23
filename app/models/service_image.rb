@@ -9,6 +9,7 @@ class ServiceImage < ActiveRecord::Base
   default_scope { order(:position) }
 
   def to_jq_upload
+    image ?
     {
       id: self.id,
       position: self.position,
@@ -21,6 +22,6 @@ class ServiceImage < ActiveRecord::Base
       updateUrl: Rails.application.routes.url_helpers.update_file_admin_file_upload_path(file_klass: self.class.model_name, file_id: self.id),
       updateType: 'PATCH',
       title: self.title
-    }
+    } : {}
   end
 end
