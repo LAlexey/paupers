@@ -37,7 +37,7 @@
     .container
       .row
         = bootstrap_flash
-      .main
+      .row
         = yield
       - unless user_signed_in?
         = render partial: 'shared/popup/auth_popup'

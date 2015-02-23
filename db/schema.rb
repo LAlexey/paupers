@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125120450) do
+ActiveRecord::Schema.define(version: 20150223083958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 20150125120450) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "city_id"
+    t.integer  "service_id"
   end
 
   create_table "requests", force: true do |t|
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150125120450) do
     t.datetime "updated_at"
     t.integer  "price"
     t.string   "currency"
+    t.string   "short_desc",  limit: 300
   end
 
   add_index "services", ["vendor_id"], name: "index_services_on_vendor_id", using: :btree

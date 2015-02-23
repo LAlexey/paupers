@@ -3,7 +3,7 @@
 }
 
 .services {
-  padding: 0 10px;
+  padding-right: 20px;
   margin: 0 auto;
   width: 960px;
 
@@ -60,11 +60,27 @@ figure.service-card {
     }
 
     .service-vendor {
-      font-family: 'FontAwesome';
       padding: 0 16px;
+      color: #888;
 
+//      &:before {
+//        font-family: 'FontAwesome';
+//        content: "\f007";
+//        position: relative;
+//        left: -2px;
+//      }
+    }
+
+    .service-place {
+      height: 22px;
+      color: #888;
+      padding-left: 19px;
+    }
+
+    .service-place:not(:empty) {
       &:before {
-        content: "\f007";
+        font-family: 'FontAwesome';
+        content: "\f041";
         position: relative;
         left: -2px;
       }

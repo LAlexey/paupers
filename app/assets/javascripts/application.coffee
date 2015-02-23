@@ -16,3 +16,4 @@
 #= require requests
 #= require plugins/bootstrap-rating/bootstrap-rating
 #= require fotorama.js
+

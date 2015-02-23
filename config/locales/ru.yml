@@ -1,2 +1,17 @@
 ru:
   hello: "Hello world"
+  activerecord:
+    models:
+      service: Услуга
+      place: Место
+    attributes:
+      service:
+        title: Заголовок
+        short_desc: Краткое описание
+        description: Описание
+        price: Цена
+        category_ids: Категории
+        vendor_id: Мастер
+      place:
+        city_id: Город
+        address: Адрес

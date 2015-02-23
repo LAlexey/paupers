@@ -70,4 +70,5 @@ initYandexMap = ->
   refresh_bindings()
 
 $ ->
-  ymaps.ready(initYandexMap);
+  if ymaps?
+    ymaps.ready(initYandexMap);

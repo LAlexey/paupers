@@ -28,19 +28,19 @@ $glyph-color: #c52d2f;
 @import "pages/services/show";
 @import "fotorama";
 
-//@media (min-width: 1200px) {
-//  @import "bigscreen";
-//}
-//@media (min-width: 992px) and (max-width: 1199px){
-//  @import "screen";
-//}
-//@media (min-width: 768px) and (max-width: 979px)
-//{
-//  @import "tablet";
-//}
-//@media (max-width: 767px) {
-//  @import "mobile";
-//}
+@media (min-width: 1200px) {
+  @import "bigscreen";
+}
+@media (min-width: 992px) and (max-width: 1199px){
+  @import "screen";
+}
+@media (min-width: 768px) and (max-width: 979px)
+{
+  @import "tablet";
+}
+@media (max-width: 767px) {
+  @import "mobile";
+}
 
 @media (min-width: 768px) { .container { max-width: 970px; } }
 

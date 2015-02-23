@@ -13,4 +13,5 @@
 
 #= require utils
 #= require jquery_nested_form
-#= require admin/vendors
+#= require admin/ya_map
+#= require ckeditor/init

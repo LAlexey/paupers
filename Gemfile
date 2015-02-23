@@ -36,6 +36,7 @@ end
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'font-awesome-sass', '~> 4.3.0'
 gem 'google-webfonts-rails'
+gem 'ckeditor'
 
 gem 'autoprefixer-rails'
 gem 'nested_form'
@@ -70,6 +71,7 @@ gem 'virtus'
 gem 'geocoder'
 gem 'rails_config'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'keynote'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7' # already installed with devise

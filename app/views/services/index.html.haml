@@ -1,13 +1,4 @@
 %section.services
-  -#.container
-    .center
-      %h2 Лучшие услуги
-      %p.lead
-        В [Красноярске]
-        %br/
-        Смотрите,задавайте вопросы,ставьте лайки, звоните!
   .section-head
     %h2 Лучшие услуги
-  - @services.in_groups_of(4, false) do |services|
-    .block-grid
-      = render partial: 'service', collection: services
+  = render partial: 'service_list', object: @services

@@ -1,10 +1,12 @@
 %figure.service-card
+  - widget = k(:service_card_widget, service)
   = link_to service do
-    = image_tag(service.main_image.image.large_thumb.url, width: 220, height: 134)
+    = image_tag(widget.large_thumb, width: 220, height: 134)
     %figcaption
-      %p.service-title.trunc= service.title
-      %p.service-vendor= service.vendor.name
-      %p.service-desc= service.description
-      %p.service-price= service.price
+      %p.service-title.trunc= widget.title
+      %p.service-vendor= widget.vendor
+      -#%p.service-desc= widget.short_desc
+      %p.service-place= widget.place
+      %p.service-price= widget.price
 
       -#= hidden_field_tag :rating, nil, class: 'rating'

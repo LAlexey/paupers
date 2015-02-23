@@ -40,14 +40,10 @@ class Admin::ServicesController < Admin::BaseController
   # PATCH/PUT /services/1
   # PATCH/PUT /services/1.json
   def update
-    respond_to do |format|
-      if @service.update(service_params)
-        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
-        format.json { render :show, status: :ok, location: [:admin, @service] }
-      else
-        format.html { render :edit }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
-      end
+    if @service.update(service_params)
+      redirect_to @service, notice: 'Обновлено'
+    else
+      render :edit
     end
   end
 
@@ -62,13 +58,11 @@ class Admin::ServicesController < Admin::BaseController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
   def set_service
     @service = Service.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def service_params
-    params[:service].permit(:title, :description, :price, :vendor_id, category_ids: [])
+    params[:service].permit(:title, :short_desc, :description, :price, :vendor_id, category_ids: [], place_attributes: [:id, :address, :city_id, :_destroy])
   end
 end
