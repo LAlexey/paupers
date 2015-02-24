@@ -21,8 +21,7 @@
 
 %aside.appointment.col-sm-3
   - if user_signed_in? || true
-    %a{href: '#', data: { toggle: :modal, target: '#new_request_popup' }, class: 'appoint_link'}
-      Отправить заявку!
+    = link_to 'Отправить заявку!', tickets_path(service_id: @service.id), method: :post, class: 'appoint_link'
 
   .big-rate
     %h3 Рейтинг
@@ -31,5 +30,3 @@
   .admin
     - if policy(@service).update?
       = link_to 'редактировать', edit_admin_service_path(@service)
-
-= render 'shared/popup/request_popup'

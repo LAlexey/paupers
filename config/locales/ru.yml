@@ -4,6 +4,7 @@ ru:
     models:
       service: Услуга
       place: Место
+      ticket: Заявка
     attributes:
       service:
         title: Заголовок
@@ -15,3 +16,7 @@ ru:
       place:
         city_id: Город
         address: Адрес
+      ticket:
+        date: Дата
+        time: Время
+        comment: Комментарий

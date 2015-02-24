@@ -1,13 +1,17 @@
 class ApplicationController < ActionController::Base
-  include Pundit
+  include Auth
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  decent_configuration do
+    strategy DecentExposure::StrongParametersStrategy
+  end
 
-  # before_action :debug
+  before_action :debug
   def debug
-    #sign_out :user
+    sign_out :user
+    sign_in User.find_by(email: 'mail@er.com')
   end
 
   def home

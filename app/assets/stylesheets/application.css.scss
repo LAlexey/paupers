@@ -18,7 +18,7 @@ $glyph-color: #e22d2f;
 @import "plugins/jquery.fileupload";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "animate.css";
+@import "animate";
 @import "main";
 
 @import "slider";
@@ -27,6 +27,7 @@ $glyph-color: #e22d2f;
 @import "pages/services/index";
 @import "pages/services/show";
 @import "fotorama";
+@import "plugins/jquery.datetimepicker";
 
 @media (min-width: 1200px) {
   @import "bigscreen";

@@ -5,12 +5,12 @@ class FormObject
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  def persist
+  def persist(record=nil)
     raise NotImplementedError
   end
 
-  def persist!
-    raise 'form object with errors' unless persist
+  def persist!(record=nil)
+    raise 'form object with errors' unless persist(record)
   end
 
   def persisted?

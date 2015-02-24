@@ -68,11 +68,13 @@ gem 'ancestry'
 gem 'ranked-model'
 gem 'the_sortable_tree', '~> 2.5.0'
 gem 'virtus'
+gem 'decent_exposure'
 
 gem 'geocoder'
 gem 'rails_config'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'keynote'
+gem 'russian'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7' # already installed with devise

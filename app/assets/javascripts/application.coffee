@@ -4,6 +4,7 @@
 
 #= require bootstrap-sprockets
 #= require angular
+#= require plugins/role
 
 #= require plugins/fileupload/main
 
@@ -13,7 +14,7 @@
 
 #= require utils
 
-#= require requests
 #= require plugins/bootstrap-rating/bootstrap-rating
+#= require plugins/datetimepicker/jquery.datetimepicker
 #= require fotorama.js
 #= require pages/services/show

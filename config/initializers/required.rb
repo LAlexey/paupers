@@ -1,0 +1,1 @@
+Dir[ './lib/core_ext/*.rb' ].each { |lib| require lib }

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   root to: 'application#home'
 
   resources :services, only: [:index, :show]
-  resources :requests, only: [:create]
+  resources :tickets, only: [:show, :create, :update]
 
   namespace :admin do
     resources :services
