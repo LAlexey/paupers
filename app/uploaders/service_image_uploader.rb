@@ -1,5 +1,5 @@
 class ServiceImageUploader < AbstractUploader
-
+  include CarrierWave::Meta
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   #def store_dir
@@ -20,6 +20,8 @@ class ServiceImageUploader < AbstractUploader
   # def scale(width, height)
   #   # do something
   # end
+
+  process store_meta: [{md5sum: true}]
 
   version :thumb do
      process :resize_to_fit => [100, 100]

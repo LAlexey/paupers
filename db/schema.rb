@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224085006) do
+ActiveRecord::Schema.define(version: 20150228161635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150224085006) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+    t.text     "image_meta"
   end
 
   add_index "service_images", ["position", "service_id"], name: "index_service_images_on_position_and_service_id", unique: true, using: :btree

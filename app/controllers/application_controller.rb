@@ -10,8 +10,7 @@ class ApplicationController < ActionController::Base
 
   before_action :debug
   def debug
-    sign_out :user
-    sign_in User.find_by(email: 'mail@er.com')
+    sign_in User.find_by(email: 'mail@er.com') unless user_signed_in?
   end
 
   def home

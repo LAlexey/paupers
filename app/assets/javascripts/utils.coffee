@@ -13,4 +13,6 @@ window.notify_user = (message) ->
     }
 
 $ ->
-  $('@datetimepicker').datetimepicker()
+  $dt = $('@datetimepicker')
+  if $dt.length
+    $dt.datetimepicker()

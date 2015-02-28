@@ -1,10 +1,15 @@
 class ServiceImage < ActiveRecord::Base
+  extend CarrierWave::Meta::ActiveRecord
+
   belongs_to :service
 
   include RankedModel
   ranks :position, with_same: :service_id
 
   mount_uploader :image, ServiceImageUploader
+  serialize :image_meta, OpenStruct
+  carrierwave_meta_composed :image_meta,
+                            image: [:width, :height, :md5sum]
 
   default_scope { order(:position) }
 
