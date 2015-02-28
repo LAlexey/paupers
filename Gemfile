@@ -69,6 +69,7 @@ gem 'ranked-model'
 gem 'the_sortable_tree', '~> 2.5.0'
 gem 'virtus'
 gem 'decent_exposure'
+gem 'aasm'
 
 gem 'geocoder'
 gem 'rails_config'

@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     CFPropertyList (2.3.0)
+    aasm (4.1.0)
     actionmailer (4.1.7)
       actionpack (= 4.1.7)
       actionview (= 4.1.7)
@@ -334,6 +335,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   acts_as_votable (~> 0.10.0)
   ancestry
   angularjs-rails

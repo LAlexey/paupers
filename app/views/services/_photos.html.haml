@@ -1,4 +1,3 @@
-.fotorama{ data: { nav: :thumbs, fit: :cover, width: 700, 'max-height' => 423, arrows: 'always', click: 'true', swipe: 'true', loop: 'true', captions: 'true' } }
+.fotorama{ data: { fit: :cover, autoplay: true, width: 700, 'max-height' => 423, arrows: 'always', click: 'true', swipe: 'true', loop: 'true', captions: 'true' } }
   - photos.each do |photo|
-    = link_to photo.image.url(:full), data: { caption: photo.title } do
-      = image_tag(photo.image.url(:thumb))
+    = image_tag(photo.image.url(:full), data: { caption: photo.title })
