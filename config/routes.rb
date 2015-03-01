@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     get :tickets
   end
 
+  resources :vendors, only: [:show] do
+    resources :tickets, only: :index
+  end
+
   namespace :admin do
     resources :services
     resources :service_categories do
