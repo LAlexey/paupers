@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   resources :services, only: [:index, :show]
   resources :tickets, only: [:show, :create, :update]
 
+  resource :cabinet, controller: :cabinet, only: [] do
+    get :tickets
+  end
+
   namespace :admin do
     resources :services
     resources :service_categories do

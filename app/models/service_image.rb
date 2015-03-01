@@ -13,6 +13,12 @@ class ServiceImage < ActiveRecord::Base
 
   default_scope { order(:position) }
 
+  [:thumb, :large_thumb, :full].each do |version|
+      define_method version do
+        image.url(version)
+      end
+  end
+
   def to_jq_upload
     image ?
     {

@@ -9,6 +9,7 @@ body {
   color:#4e4e4e;
   line-height: 22px;
   margin-bottom: 60px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fffefb), to(#cdccca));
 }
 
 div, section {
@@ -16,9 +17,9 @@ div, section {
   padding: 0;
 }
 
-//.row {
-//  position: relative;
-//}
+.row {
+  margin-left: 0;
+}
 
 h1,
 h2,
@@ -382,5 +383,21 @@ a:focus {
   .container {
     width: auto;
     padding: 20px 15px 0;
+  }
+}
+
+.cabinet-ticket {
+  position: relative;
+  margin-bottom: 10px;
+
+  .info {
+    position: absolute;
+    top: 0;
+    margin: 0 0 0 15px;
+    display: inline-block;
+
+    h2 {
+      margin: 0;
+    }
   }
 }

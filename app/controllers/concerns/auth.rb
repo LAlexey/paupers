@@ -3,11 +3,13 @@ module Auth
 
   included do
     include Pundit
+    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   end
 
-  def only_for_users
-    respond_to do |format|
-      format.html { redirect_to root_path }
-    end
+  private
+
+  def user_not_authorized
+    flash[:alert] = 'Авторизуйтесь'
+    redirect_to(request.referrer || root_path)
   end
 end

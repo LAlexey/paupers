@@ -1,0 +1,5 @@
+.row.cabinet-ticket
+  = image_tag(ticket.service.main_image.thumb)
+  .info
+    %h2= link_to ticket.service.title, ticket.service
+    %p= ticket.state

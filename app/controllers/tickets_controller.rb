@@ -6,10 +6,9 @@ class TicketsController < ApplicationController
     redirect_to request
   end
 
-  def show
-  end
-
   def update
+    ticket.confirm
+
     if ticket.save
       redirect_to root_path, notice: 'Заявка подтверждена!'
     else

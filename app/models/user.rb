@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
          :confirmable
 
   acts_as_voter
+
+  has_many :tickets, foreign_key: :owner_id
 end
