@@ -22,5 +22,9 @@ module Services
 
     config.autoload_paths += %W( #{config.root}/lib )
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
+    Dir["#{config.root}/config/routes/*.rb"].sort.each do |route|
+      config.paths['config/routes.rb'].unshift(route)
+    end
   end
 end
