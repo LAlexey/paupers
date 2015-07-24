@@ -3,7 +3,7 @@ class Service < ActiveRecord::Base
 
   belongs_to :vendor
   has_and_belongs_to_many :categories, class_name: '::ServiceCategory'
-  has_many :images, class_name: 'ServiceImage', inverse_of: :service
+  has_many :images, class_name: '::ServiceImage', inverse_of: :service
 
   has_one :place
   accepts_nested_attributes_for :place, allow_destroy: true
@@ -11,7 +11,7 @@ class Service < ActiveRecord::Base
   validates :vendor, presence: true
   validate :ensure_has_category
 
-  scope :with_places, ->{ includes(place: :city) }
+  scope :with_places, -> { includes(place: :city) }
 
   def main_image
     images.order(:position).first
