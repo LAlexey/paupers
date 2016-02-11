@@ -1,22 +1,21 @@
 class ServiceImage < ActiveRecord::Base
   extend CarrierWave::Meta::ActiveRecord
+  include RankedModel
 
   belongs_to :service
 
-  include RankedModel
   ranks :position, with_same: :service_id
 
   mount_uploader :image, ServiceImageUploader
   serialize :image_meta, OpenStruct
-  carrierwave_meta_composed :image_meta,
-                            image: [:width, :height, :md5sum]
+  carrierwave_meta_composed :image_meta, image: [ :width, :height, :md5sum ]
 
   default_scope { order(:position) }
 
   [:thumb, :large_thumb, :full].each do |version|
-      define_method version do
-        image.url(version)
-      end
+    define_method version do
+      image.url(version)
+    end
   end
 
   def to_jq_upload

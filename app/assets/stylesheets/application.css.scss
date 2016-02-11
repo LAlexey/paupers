@@ -15,7 +15,6 @@
 $glyph-color: #e22d2f;
 
 @import "bootstrap_and_overrides";
-@import "plugins/jquery.fileupload";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "animate";
@@ -27,7 +26,11 @@ $glyph-color: #e22d2f;
 @import "pages/services/index";
 @import "pages/services/show";
 @import "fotorama";
+@import "dropzone";
 @import "plugins/jquery.datetimepicker";
+@import "pages/vendors/tickets";
+
+@import "dropzoned";
 
 @media (min-width: 1200px) {
   @import "bigscreen";

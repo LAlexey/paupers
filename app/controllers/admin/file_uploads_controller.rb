@@ -1,5 +1,9 @@
 class Admin::FileUploadsController < Admin::BaseController
 
+  def create
+    render nothing: true
+  end
+
   # owner_klass
   # owner_id
   # assoc

@@ -47,7 +47,7 @@
 		allowTimes: [],
 		opened: false,
 		initTime: true,
-		inline: true,
+		inline: false,
 		theme: '',
 
 		onSelectDate: function () {},

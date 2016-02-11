@@ -9,15 +9,20 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer',  platforms: :ruby
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'angularjs-rails'
+gem 'jquery-cookie-rails'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-dropzone'
+end
+
 # gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-group :development do
-  gem 'spring'
-  gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
-end
+# group :development do
+#   gem 'spring'
+#   gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
+# end
 
 #gem 'railsstrap'
 
@@ -65,6 +70,10 @@ gem 'rails_config'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'keynote'
 gem 'russian'
+gem 'will_paginate'
+gem 'gon'
+# gem 'underscore-rails'
+gem 'handlebars_assets'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7' # already installed with devise
@@ -77,4 +86,3 @@ gem 'russian'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

@@ -20,3 +20,7 @@ ru:
         date: Дата
         time: Время
         comment: Комментарий
+
+  helpers:
+    titles:
+      new: 'Новая'

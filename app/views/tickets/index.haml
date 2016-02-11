@@ -1,0 +1,7 @@
+.vendor-tickets
+  %h1 Заявки от пользователей
+
+  %ul
+    - @tickets.each do |ticket|
+      %li
+        = link_to ticket.user.email, ticket.user

@@ -49,11 +49,19 @@
   = f.submit 'Сохранить'
 
   %hr
-  #map(style="width: 600px; height: 400px;")
+  -##map(style="width: 600px; height: 400px;")
 
-  = link_to t('.cancel', :default => t('helpers.links.cancel')), services_path, :class => 'btn btn-default'
+  = link_to 'Назад', services_path, class: 'btn btn-default'
 
 %hr
 
 - if @service.persisted?
-  = render partial: 'shared/fileupload/upload', locals: { owner_klass: Service.model_name, owner_id: @service.id, assoc: 'images' }
+  = file_field_tag :fileupload, name: 'files[]', data: { url: admin_file_uploads_path }, multiple: true
+  .files-container
+  %script(id="file-upload-template" type="text/x-handlebars-template")
+    .fileupload-entry
+      .img
+      .content
+        {{content}}
+
+  -#= render partial: 'shared/fileupload/upload', locals: { owner_klass: Service.model_name, owner_id: @service.id, assoc: 'images' }

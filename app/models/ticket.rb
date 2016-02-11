@@ -8,14 +8,16 @@ class Ticket < ActiveRecord::Base
   before_validation :set_vendor, on: :create
 
   validates :user, :service, presence: true
+  validates :vendor, presence: true
+
+  scope :with_vendor, ->(vendor) { where(vendor: vendor) }
 
   aasm column: 'state' do
-    # state :pending, initial: true # after creation
     state :confirming, initial: true
-    state :approving # after filling full ticket form, vendor can see this ticket
-    state :performing # if venodr get this ticket in work
-    state :done   # when job is done
-    state :cancelled  # smbd cancelled job
+    state :approving    # after filling full ticket form, vendor can see this ticket
+    state :performing   # if venodr get this ticket in work
+    state :done         # when job is done
+    state :cancelled    # smbd cancelled job
 
     event :confirm do
       transitions from: :confirming, to: :approving

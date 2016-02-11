@@ -25,10 +25,14 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
 
+    = Gon::Base.render_data({})
     = yield(:head)
 
 
   %body
+    .loader-popup(style="display: none;")
+      .spinner
+
     -#= render partial: 'shared/social/facebook_init'
 
     -#= render partial: 'layouts/top_navigation'

@@ -12,19 +12,21 @@ Rails.application.routes.draw do
   }
 
   resources :vendors
-
   resources :service_categories
-
-  root to: 'application#home'
-
   resources :services, only: [:index, :show]
   resources :tickets, only: [:show, :create, :update]
-
-  resource :cabinet, controller: :cabinet, only: [] do
-    get :tickets
-  end
-
+  resources :users, only: [:show]
   resources :vendors, only: [:show] do
     resources :tickets, only: :index
   end
+
+  resource :cabinet, controller: :cabinet, only: [:show, :edit, :update] do
+    get :tickets
+  end
+
+  resources :images, only: [:create]
+
+  get '/test', to: 'application#test'
+
+  root to: 'application#home'
 end

@@ -9,12 +9,16 @@ Rails.application.routes.draw do
 
     resources :vendors
 
-    resource :file_upload do
-      get :upload_files
-      post :upload_files
-      delete :destroy_file
-      put :update_position
-      patch :update_file
-    end
+    resource :file_uploads, only: [:create]
+
+    # resource :file_upload do
+    #   get :upload_files
+    #   post :upload_files
+    #   delete :destroy_file
+    #   put :update_position
+    #   patch :update_file
+    # end
+
+    root to: 'services#index'
   end
 end

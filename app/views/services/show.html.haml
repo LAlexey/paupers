@@ -20,10 +20,10 @@
         %p= place.address
 
 %aside.appointment.col-sm-3
-  - if user_signed_in? || true
-    = link_to 'Отправить заявку!', tickets_path(service_id: @service.id), method: :post, class: 'appoint_link'
+  - if user_signed_in?
+    = link_to 'Оставить заявку', tickets_path(service_id: @service.id), method: :post, class: 'appoint_link'
 
-  .big-rate
+  -#.big-rate
     %h3 Рейтинг
     = hidden_field_tag :rating, nil, class: 'rating'
 

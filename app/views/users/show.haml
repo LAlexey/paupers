@@ -1,0 +1,5 @@
+.user-cabinet
+  %h1= @user.email
+
+  .profile-image
+    = image_tag(@user.profile_image.image.thumb)

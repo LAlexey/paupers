@@ -1,0 +1,26 @@
+= javascript_include_tag 'dropzoned'
+
+Файлы
+.dropzone-uploader
+  Нажмите или перенесите файлы сюда
+
+#previews.table.table-striped
+  #template.file-row
+    / This is used as the file preview template
+    %div
+      %span.preview
+        %img{"data-dz-thumbnail" => ""}/
+    %div
+      %p.name{"data-dz-name" => ""}
+      %strong.error.text-danger{"data-dz-errormessage" => ""}
+    %div
+      %p.size{"data-dz-size" => ""}
+      .progress.progress-striped.active{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "0", :role => "progressbar"}
+        .progress-bar.progress-bar-success{"data-dz-uploadprogress" => "", :style => "width:0%;"}
+    %div
+      %button.btn.btn-primary.dz-start-upload
+        %i.glyphicon.glyphicon-upload
+        %span Загрузить
+      %button.btn.btn-warning.cancel{"data-dz-remove" => ""}
+        %i.glyphicon.glyphicon-ban-circle
+        %span Отмена

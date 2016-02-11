@@ -8,9 +8,9 @@ module Tickets
     end
 
     def build
-      Ticket.create do |request|
-        request.service = service
-        request.user = current_user
+      Ticket.create(date: Date.current) do |ticket|
+        ticket.service = service
+        ticket.user = current_user
       end
     end
   end

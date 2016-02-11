@@ -10,3 +10,4 @@ Rails.application.config.assets.precompile += Ckeditor.assets
 Rails.application.config.assets.precompile += %w(ru).map {|l| "ckeditor/lang/#{l}.js"}
 Rails.application.config.assets.precompile += ['ckeditor/styles.js', 'ckeditor/config.js']
 Rails.application.config.assets.precompile += %w( fotorama* )
+Rails.application.config.assets.precompile += %w( dropzoned.js )

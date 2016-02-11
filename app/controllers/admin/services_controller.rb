@@ -57,6 +57,19 @@ class Admin::ServicesController < Admin::BaseController
     end
   end
 
+  protected
+  def gon_page_options
+    # locals: { owner_klass: Service.model_name, owner_id: @service.id, assoc: 'images' }
+
+    h = {
+      page: 'service'
+    }
+
+    h[:id] if @service
+
+    h
+  end
+
   private
   def set_service
     @service = Service.find(params[:id])

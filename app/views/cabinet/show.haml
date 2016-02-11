@@ -1,0 +1,6 @@
+.user-cabinet
+  %h1 Личный кабинет
+  %h2= current_user.email
+
+  .profile-image
+    = image_tag(current_user.profile_image.image.thumb)

@@ -2,7 +2,7 @@
 
 %section#new_ticket
   = bootstrap_form_for(ticket, layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10', ) do |f|
-    = f.text_field :time, value: (ticket.time || DateTime.now.round_half_hour).strftime('%d.%m.%Y %H:%M'), role: 'datetimepicker'
+    = f.text_field :date, value: l(ticket.date || Date.current, format: '%d.%m.%Y'), role: 'datepicker'
     = f.text_area :comment
     .form-group
       .col-sm-2

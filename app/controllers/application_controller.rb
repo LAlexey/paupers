@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
     strategy DecentExposure::StrongParametersStrategy
   end
 
-  before_action :debug
-  def debug
-    sign_in User.find_by(email: 'mail@er.com') unless user_signed_in?
+  before_action :init_gon
+  after_action do
+    response.headers.delete('X-Frame-Options')
   end
 
   def home
@@ -18,8 +18,35 @@ class ApplicationController < ActionController::Base
     @categories = ServiceCategory.arrange
   end
 
+  def test
+    t=0
+  end
+
+  def frame
+
+  end
+
   def popup
     @popup ||= Popup.new(view_context)
   end
   helper_method :popup
+
+  def init_gon
+    gon.data_layer = {
+      page_options: gon_page_options
+    }
+  end
+
+  #TODO override
+  def gon_page_options
+    "#{controller_path}_#{action_name}"
+  end
+
+  def user_signed_in?
+    true
+  end
+
+  def current_user
+    User.find(1)
+  end
 end
