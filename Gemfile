@@ -50,7 +50,6 @@ group :development, :test do
   gem 'letter_opener'
   gem 'faker'
   gem 'quiet_assets'
-  gem 'class_indexer'
 end
 
 gem 'mini_magick'
