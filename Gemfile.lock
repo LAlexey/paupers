@@ -35,6 +35,7 @@ GEM
     ancestry (2.1.0)
       activerecord (>= 3.0.0)
     arel (5.0.1.20140414130214)
+    ast (2.2.0)
     autoprefixer-rails (5.1.7)
       execjs
       json
@@ -60,6 +61,9 @@ GEM
     ckeditor (4.1.1)
       cocaine
       orm_adapter (~> 0.5.0)
+    class_indexer (0.3.0)
+      json
+      parser
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.5)
@@ -246,6 +250,8 @@ GEM
       mini_portile (~> 0.6.0)
     non-stupid-digest-assets (1.0.4)
     orm_adapter (0.5.0)
+    parser (2.3.0.5)
+      ast (~> 2.2)
     pg (0.18.1)
     pundit (0.3.0)
       activesupport (>= 3.0.0)
@@ -367,6 +373,7 @@ DEPENDENCIES
   carrierwave
   carrierwave-meta
   ckeditor
+  class_indexer
   coffee-rails (~> 4.0.0)
   decent_exposure
   devise
