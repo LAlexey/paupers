@@ -1,0 +1,19 @@
+%h1 Listing admin_time_ranges
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @time_ranges.each do |admin_time_range|
+      %tr
+        %td= link_to 'Show', admin_time_range
+        %td= link_to 'Edit', edit_admin_time_range_path(admin_time_range)
+        %td= link_to 'Destroy', admin_time_range, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Time range', new_admin_time_range_path

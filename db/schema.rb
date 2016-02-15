@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818161441) do
+ActiveRecord::Schema.define(version: 20160213080816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,14 @@ ActiveRecord::Schema.define(version: 20150818161441) do
     t.string   "state"
     t.integer  "vendor_id"
   end
+
+  create_table "time_ranges", force: true do |t|
+    t.integer   "item_id"
+    t.string    "item_type"
+    t.int4range "during"
+  end
+
+  add_index "time_ranges", ["during"], name: "index_time_ranges_on_during", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
