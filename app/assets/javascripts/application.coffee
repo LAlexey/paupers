@@ -19,6 +19,7 @@
 #= require pages/services/show
 
 #= require dropzone
+#= require react
 #= require_self
 
 class App

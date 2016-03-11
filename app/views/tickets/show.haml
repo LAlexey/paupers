@@ -4,6 +4,7 @@
   = bootstrap_form_for(ticket, layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10', ) do |f|
     = f.text_field :date, value: l(ticket.date || Date.current, format: '%d.%m.%Y'), role: 'datepicker'
     = f.text_area :comment
+    = f.select :time, options_for_select(['14:55-15:55'])
     .form-group
       .col-sm-2
       .col-sm-10= f.button 'Сформировать заявку', class: 'btn btn-primary'

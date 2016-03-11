@@ -36,6 +36,18 @@ class Ticket < ActiveRecord::Base
     end
   end
 
+  composed_of :time,
+    class_name: '::BoundTime',
+    converter: :build,
+    mapping: %w(time range)
+
+  scope :overlaps, ->(range) { where('during && ?', BoundTime.build(range)) }
+
+  def overlaps?(range)
+    bound_time = BoundTime.build(range)
+    time.overlaps?(bound_time)
+  end
+
   protected
   def set_vendor
     self.vendor ||= service.vendor

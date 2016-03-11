@@ -6,3 +6,5 @@
   = bootstrap_form_for(current_user, url: cabinet_path,layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10') do |f|
     = f.fields_for(:profile_image, f.object.profile_image || f.object.build_profile_image) do |image_fields|
       = image_fields.file_field :image, role: 'async-file-upload'
+
+    = f.submit

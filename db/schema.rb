@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213080816) do
+ActiveRecord::Schema.define(version: 20160215085959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,20 +85,22 @@ ActiveRecord::Schema.define(version: 20160213080816) do
   add_index "services", ["vendor_id"], name: "index_services_on_vendor_id", using: :btree
 
   create_table "tickets", force: true do |t|
-    t.integer  "owner_id"
-    t.integer  "service_id"
-    t.date     "date",       null: false
-    t.string   "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "state"
-    t.integer  "vendor_id"
+    t.integer   "owner_id"
+    t.integer   "service_id"
+    t.date      "date",       null: false
+    t.string    "comment"
+    t.datetime  "created_at"
+    t.datetime  "updated_at"
+    t.string    "state"
+    t.integer   "vendor_id"
+    t.int4range "time"
   end
 
   create_table "time_ranges", force: true do |t|
     t.integer   "item_id"
     t.string    "item_type"
     t.int4range "during"
+    t.integer   "wday",      null: false
   end
 
   add_index "time_ranges", ["during"], name: "index_time_ranges_on_during", using: :btree
@@ -127,7 +129,7 @@ ActiveRecord::Schema.define(version: 20160213080816) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "vendors", force: true do |t|
-    t.string   "name"
+    t.string   "name"g
     t.string   "permalink"
     t.text     "description"
     t.datetime "created_at"

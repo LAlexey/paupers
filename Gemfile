@@ -13,6 +13,7 @@ gem 'jquery-cookie-rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-dropzone'
+  gem 'rails-assets-react'
 end
 
 # gem 'turbolinks'
@@ -50,6 +51,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'faker'
   gem 'quiet_assets'
+  gem 'pry-byebug'
 end
 
 gem 'mini_magick'
