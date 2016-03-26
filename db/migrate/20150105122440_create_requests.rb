@@ -4,8 +4,7 @@ class CreateRequests < ActiveRecord::Migration
       t.belongs_to :owner
       t.belongs_to :service
 
-      #t.date :date
-      #t.time :time
+      t.date :date
       t.datetime :time
       t.string :comment
 
