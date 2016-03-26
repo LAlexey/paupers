@@ -1,0 +1,15 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: utf8
+  host: <%= ENV.fetch('WERCKER_POSTGRESQL_HOST', 'postgres') %>
+  user: postgres
+  password: <%= ENV['WERCKER_POSTGRESQL_PASSWORD'] %>
+
+test:
+  <<: *defaults
+  database: paupers_test
+
+
+development:
+  <<: *defaults
+  database: paupers_test

@@ -1,0 +1,34 @@
+box: ruby:2.2.3
+command-timeout: 60
+
+services:
+  - postgres:9.4
+  - nikitinsm/elasticsearch # includes elasticsearch-analysis-morphology-1.2.1 plugin
+
+build:
+  steps:
+    - script:
+      name: workaround for nokogiri
+      code: gem update --system 2.4.8
+
+    - bundle-install
+
+    - script:
+      name: copy configs
+      code: cp -p config/wercker/*.yml config
+
+    - install-packages:
+      packages: postgresql-client
+
+    - script:
+      name: create db
+      code: |
+        createdb -h postgres -U postgres paupers_test
+
+    - script:
+      name: migrate db
+      code: RAILS_ENV=test rake db:migrate
+
+    - script:
+      name: rspec
+      code: bundle exec rspec --profile --format=documentation
