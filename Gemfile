@@ -52,6 +52,8 @@ group :development, :test do
   gem 'faker'
   gem 'quiet_assets'
   gem 'pry-byebug'
+  gem 'capybara',            '~> 2.6'
+  gem 'poltergeist',         '~> 1.9.0'
 end
 
 gem 'mini_magick'

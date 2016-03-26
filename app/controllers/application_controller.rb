@@ -41,12 +41,4 @@ class ApplicationController < ActionController::Base
   def gon_page_options
     "#{controller_path}_#{action_name}"
   end
-
-  def user_signed_in?
-    true
-  end
-
-  def current_user
-    User.find(1)
-  end
 end
