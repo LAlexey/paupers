@@ -4,7 +4,6 @@ command-timeout: 60
 services:
   - postgres:9.4
   - nikitinsm/elasticsearch # includes elasticsearch-analysis-morphology-1.2.1 plugin
-  - alukyanov/docker-phantomjs
 build:
   steps:
     - script:
@@ -18,7 +17,7 @@ build:
       code: cp -p config/wercker/*.yml config
 
     - install-packages:
-      packages: postgresql-client
+      packages: postgresql-client phantomjs
 
     - script:
       name: create db
