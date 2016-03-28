@@ -29,9 +29,6 @@ build:
         code: |
           wget -q --no-check-certificate -O /tmp/phantomjs-1.9.7-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-linux-x86_64.tar.bz2
           tar -xjf /tmp/phantomjs-1.9.7-linux-x86_64.tar.bz2 -C /tmp 
-          rm -f /tmp/phantomjs-1.9.7-linux-x86_64.tar.bz2 
-          mv /tmp/phantomjs-1.9.7-linux-x86_64/ /srv/var/phantomjs 
-          ln -s /srv/var/phantomjs/bin/phantomjs /usr/bin/phantomjs 
 
     - script:
       name: migrate db
