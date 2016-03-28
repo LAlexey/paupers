@@ -4,8 +4,8 @@ command-timeout: 60
 services:
   - postgres:9.4
   - nikitinsm/elasticsearch # includes elasticsearch-analysis-morphology-1.2.1 plugin
-  - id: wernight/phantomjs:2.1.1
-    cmd: phantomjs
+  - id: wernight/phantomjs
+    tag: 2.1.1
 build:
   steps:
     - script:
