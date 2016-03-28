@@ -27,13 +27,12 @@ build:
     - script:
         name: phantomjs
         code: |
-          mkdir -p vendor/bin
-          wget -q --no-check-certificate -O /tmp/phantomjs-1.9.7-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-linux-x86_64.tar.bz2
-          tar -xjf /tmp/phantomjs-1.9.7-linux-x86_64.tar.bz2 -C /tmp 
-          mv /tmp/phantomjs-1.9.7-linux-x86_64/bin/phantomjs vendor/bin/phantomjs
-          ln -s vendor/bin/phantomjs /usr/bin/phantomjs
-          ln -s vendor/bin/phantomjs /usr/local/bin/phantomjs
-          phantomjs
+          wget -q --no-check-certificate -O /usr/local/share/phantomjs-1.9.7-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-linux-x86_64.tar.bz2
+          tar -xjf /usr/local/share/phantomjs-1.9.7-linux-x86_64.tar.bz2 -C /usr/local/share
+          sudo ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/local/share/phantomjs
+          sudo ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
+          sudo ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
+          which phantomjs
 
     - script:
       name: migrate db
