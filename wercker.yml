@@ -27,7 +27,7 @@ build:
     - script:
         name: phantomjs
         code: |
-          apt-get update && apt-get install build-essential software-properties-common chrpath libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev libssl-dev libxft-dev -y
+          apt-get update && apt-get install build-essential dialog apt-utils software-properties-common chrpath libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev libssl-dev libxft-dev -y
           wget -q --no-check-certificate -O /usr/local/share/phantomjs-1.9.7-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-linux-x86_64.tar.bz2
           sudo tar -xjf /usr/local/share/phantomjs-1.9.7-linux-x86_64.tar.bz2 -C /usr/local/share
           sudo ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/local/share/phantomjs
