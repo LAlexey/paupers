@@ -32,6 +32,8 @@ build:
           tar -xjf /tmp/phantomjs-1.9.7-linux-x86_64.tar.bz2 -C /tmp 
           mv /tmp/phantomjs-1.9.7-linux-x86_64/bin/phantomjs vendor/bin/phantomjs
           ln -s vendor/bin/phantomjs /usr/bin/phantomjs
+          ln -s vendor/bin/phantomjs /usr/local/bin/phantomjs
+          phantomjs
 
     - script:
       name: migrate db
