@@ -1,4 +1,7 @@
-box: ruby:2.2.3
+box:
+  id: ruby:2.2.3
+  cmd: /bin/sh
+
 command-timeout: 60
 
 services:
