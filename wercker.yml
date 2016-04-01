@@ -1,5 +1,5 @@
-box: rudarberry/main
-command-timeout: 61
+box: alukyanov/docker-phantomjs
+command-timeout: 60
 
 services:
   - postgres:9.4
