@@ -26,5 +26,13 @@ module Services
     Dir["#{config.root}/config/routes/*.rb"].sort.each do |route|
       config.paths['config/routes.rb'].unshift(route)
     end
+
+    config.generators do |g|
+      g.helper false
+      g.assets false
+
+      g.test_framework :rspec, fixtures: true, views: false
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+    end
   end
 end

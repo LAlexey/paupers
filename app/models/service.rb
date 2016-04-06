@@ -1,6 +1,8 @@
 class Service < ActiveRecord::Base
   acts_as_votable
 
+  update_index('services', :self)
+
   belongs_to :vendor
   validates :vendor, presence: true
 

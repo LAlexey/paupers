@@ -78,6 +78,7 @@ gem 'will_paginate'
 gem 'gon'
 # gem 'underscore-rails'
 gem 'handlebars_assets'
+gem 'chewy'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7' # already installed with devise

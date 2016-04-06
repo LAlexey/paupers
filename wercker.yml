@@ -1,4 +1,4 @@
-box: alukyanov/docker-phantomjs
+box: rudarberry/main
 command-timeout: 60
 
 services:
